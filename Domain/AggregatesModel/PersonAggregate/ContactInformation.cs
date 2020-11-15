@@ -13,7 +13,7 @@ namespace Domain.AggregatesModel.PersonAggregate
 
         protected ContactInformation() { }
 
-        public ContactInformation(Phone phone, Email email, string desciption, string location)
+        public ContactInformation(Phone phone, Email email, string location, string desciption)
         {
 
             this.desciption = !string.IsNullOrWhiteSpace(desciption) ? desciption : throw new ArgumentNullException(nameof(desciption));
@@ -25,6 +25,15 @@ namespace Domain.AggregatesModel.PersonAggregate
         public bool IsEqualTo(Phone phone)
         {
             return this.phone.Equals(phone);
+        }
+
+        internal ContactInformation Update(Phone phone, Email email, string location, string description)
+        {
+            this.desciption = !string.IsNullOrWhiteSpace(desciption) ? desciption : throw new ArgumentNullException(nameof(desciption));
+            this.location = !string.IsNullOrWhiteSpace(location) ? location : throw new ArgumentNullException(nameof(location));
+            this.phone =phone;
+            this.email =email;
+            return this;
         }
     }
 }
