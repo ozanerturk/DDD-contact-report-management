@@ -16,6 +16,7 @@ namespace API
         }
         public async Task Handle(IMessageContext context, RemoveContactInformationEvent message)
         {
+            Console.WriteLine("RemoveContactInformationEvent occured");
 
             var stat =await statisticRepository.FindAsync(message.personId,message.phoneNumber);
             if(stat != null){

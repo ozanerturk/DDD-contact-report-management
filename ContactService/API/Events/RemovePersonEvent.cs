@@ -3,9 +3,9 @@ using System.Runtime.Serialization;
 namespace API
 {
     [DataContract]
-    public class CreatePersonEvent
+    public class RemovePersonEvent
     {
-        [DataMember(Order = 1)]
+        [DataMember]
         public int personId { get; set; }
     }
 }

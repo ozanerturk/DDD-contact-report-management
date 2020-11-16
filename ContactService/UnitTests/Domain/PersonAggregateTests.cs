@@ -1,3 +1,4 @@
+using Domain;
 using Domain.AggregatesModel.PersonAggregate;
 // using Ordering.Domain.Exceptions;
 using System;
@@ -54,6 +55,42 @@ public class PersonAggregateTest
         //Assert
         Assert.NotNull(result);
     }
+
+
+    [Fact]
+    public void add_contactinfo_fail()
+    {
+        //Arrange    
+        var identity = new Guid().ToString();
+        var name = "fakeName";
+        var surname = "fakeSurname";
+        var company = "fakeCompany";
+        var fakePersonItem = new Person(identity, name, surname, company);
+        var location = "İstanbul";
+        var description = "fakeDescription";
+        Phone p = new Phone("5555555555");
+        Email e = Email.Create("asdf@asdf.com");
+        //Act
+
+        var result = fakePersonItem.AddContactInformation(p, e, location, description);
+
+        //Assert
+        Assert.Throws(typeof(ContactInformationAlreadyExistsException), () => fakePersonItem.AddContactInformation(p, e, location, description));
+    }
+    [Fact]
+    public void remove_contactinfo_fail()
+    {
+        //Arrange    
+        var identity = new Guid().ToString();
+        var name = "fakeName";
+        var surname = "fakeSurname";
+        var company = "fakeCompany";
+        var fakePersonItem = new Person(identity, name, surname, company);
+        var notExistsContactInformationId = 0;
+
+        //Assert
+        Assert.Throws(typeof(ContactInformationNotFoundException), () => fakePersonItem.RemoveContactInformation(notExistsContactInformationId));
+    }
     [Fact]
     public void remove_contactinfo_success()
     {
@@ -74,33 +111,9 @@ public class PersonAggregateTest
         //Act
 
         var contactInformation = fakePersonItem.AddContactInformation(p, e, location, description);
-        bool result = fakePersonItem.RemoveContactInformation(contactInformation.Id);
+        ContactInformation x = fakePersonItem.RemoveContactInformation(contactInformation.Id);
         //Assert
-        Assert.True(result);
+        Assert.NotNull(x);
     }
-
-    [Fact]
-    public void add_contactinfo_duplicate_success()
-    {
-        //Arrange    
-        var identity = new Guid().ToString();
-        var name = "fakeName";
-        var surname = "fakeSurname";
-        var company = "fakeCompany";
-        var fakePersonItem = new Person(identity, name, surname, company);
-        var location = "fakeLocation";
-        var description = "fakeDescription";
-        Phone p = new Phone("5555555555");
-        Email e = Email.Create("asdf@asdf.com");
-        //Act
-
-        var result = fakePersonItem.AddContactInformation(p, e, location, description);
-        var result2 = fakePersonItem.AddContactInformation(p, e, location, description);
-        var count = fakePersonItem.GetContactInformationCount();
-        //Assert
-        Assert.Equal(count, 1);
-    }
-
-
 
 }

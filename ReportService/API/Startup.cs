@@ -42,7 +42,7 @@ namespace API
               .AddCustomDbContext(Configuration)
               .AddCustomSwagger(Configuration)
               .AddCustomConfiguration(Configuration)
-              .AddTransient<IStatisticRepository,StatisticRepository>()
+              .AddTransient<IStatisticRepository, StatisticRepository>()
               .AddKafka();
 
             return services.BuildServiceProvider();
@@ -105,10 +105,12 @@ static class CustomExtensionsMethods
                   .WithWorkersCount(10)
                   .WithAutoOffsetReset(AutoOffsetReset.Latest)
                   .AddMiddlewares(middlewares => middlewares
-                      .AddSerializer<JsonMessageSerializer >()
+                      .AddSerializer<JsonMessageSerializer>()
                       .AddTypedHandlers(handlers => handlers
                           .WithHandlerLifetime(InstanceLifetime.Singleton)
-                          .AddHandler<AddContactInformationEventHandler>())
+                          .AddHandler<AddContactInformationEventHandler>()
+                          .AddHandler<RemovePersonEventHandler>()
+                          .AddHandler<RemoveContactInformationEventHandler>())
                   )
               )
           )

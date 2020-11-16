@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Confluent.Kafka;
+using Domain;
 using Domain.AggregatesModel.PersonAggregate;
 using KafkaFlow.Producers;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,7 @@ namespace API.Controllers
         private readonly IPersonRepository personRepository;
         private readonly IProducerAccessor producerAccessor;
 
-        public PersonController(ILogger<PersonController> logger, IPersonRepository personRepository,IProducerAccessor producerAccessor)
+        public PersonController(ILogger<PersonController> logger, IPersonRepository personRepository, IProducerAccessor producerAccessor)
         {
             _logger = logger;
             this.personRepository = personRepository;
@@ -44,6 +45,11 @@ namespace API.Controllers
             personRepository.Delete(p);
 
             await personRepository.UnitOfWork.SaveChangesAsync();
+            await personRepository.UnitOfWork.SaveChangesAsync();
+            await producerAccessor[KafkaHelper.ContactEventProducer].ProduceAsync(Guid.NewGuid().ToString(), new RemovePersonEvent()
+            {
+                personId = p.Id,
+            });
             return Ok();
         }
 
@@ -91,12 +97,22 @@ namespace API.Controllers
             {
                 return NotFound();
             }
+            try
+            {
+                var contactInformation = p.RemoveContactInformation(contactInformationId);
+                await personRepository.UnitOfWork.SaveChangesAsync();
+                await producerAccessor[KafkaHelper.ContactEventProducer].ProduceAsync(Guid.NewGuid().ToString(), new RemoveContactInformationEvent()
+                {
+                    personId = p.Id,
+                    phoneNumber = contactInformation.Phone.PhoneNumber
+                });
+                return Ok();
 
-            p.RemoveContactInformation(contactInformationId);
-
-            await personRepository.UnitOfWork.SaveChangesAsync();
-
-            return Ok();
+            }
+            catch (ContactInformationNotFoundException ex)
+            {
+                return NotFound();
+            }
         }
 
         [Route("{personId:int}/contact-information")]
@@ -114,18 +130,33 @@ namespace API.Controllers
             Phone phone = new Phone(request.phoneNumber);
             Email email = Email.Create(request.emailAddress);
 
-
-            ContactInformation c = p.AddContactInformation(phone, email, request.location, request.description);
-
-            await personRepository.UnitOfWork.SaveChangesAsync();
-
-            return Ok(new ContactInformationDTO()
+            try
             {
-                description = c.Desciption,
-                emailAddress = c.Email.EmailAddress,
-                location = c.Location,
-                phoneNumber = c.Phone.PhoneNumber
-            });
+                ContactInformation c = p.AddContactInformation(phone, email, request.location, request.description);
+
+                await personRepository.UnitOfWork.SaveChangesAsync();
+
+                await producerAccessor[KafkaHelper.ContactEventProducer].ProduceAsync(Guid.NewGuid().ToString(), new AddContactInformationEvent()
+                {
+                    location = c.Location,
+                    personId = p.Id,
+                    phoneNumber = c.Phone.PhoneNumber
+                });
+
+                return Ok(new ContactInformationDTO()
+                {
+                    id = c.Id,
+                    description = c.Desciption,
+                    emailAddress = c.Email.EmailAddress,
+                    location = c.Location,
+                    phoneNumber = c.Phone.PhoneNumber
+                });
+            }
+            catch (ContactInformationAlreadyExistsException ex)
+            {
+                return Conflict();
+            }
+
         }
 
 
@@ -136,9 +167,6 @@ namespace API.Controllers
             p = personRepository.Add(p);
 
             await personRepository.UnitOfWork.SaveChangesAsync();
-
-            
-            await producerAccessor.All.First().ProduceAsync(Guid.NewGuid().ToString(),new CreatePersonEvent(){personId = p.Id});
             return Ok(p);
         }
 

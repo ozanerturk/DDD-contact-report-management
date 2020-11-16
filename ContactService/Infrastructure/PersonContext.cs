@@ -1,10 +1,9 @@
 using Domain.AggregatesModel.PersonAggregate;
 using Domain.Bases;
+using Infrastructure.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Storage;
-using Ordering.Infrastructure;
-using Ordering.Infrastructure.EntityConfigurations;
 using System;
 using System.Data;
 using System.Threading;
@@ -26,7 +25,6 @@ namespace Infrastructure
 
         public bool HasActiveTransaction => _currentTransaction != null;
 
-    
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

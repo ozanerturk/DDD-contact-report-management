@@ -3,8 +3,12 @@ using System.Reflection;
 using API;
 using API.Controllers;
 using API.Infrastructure.Filters;
+using Domain.AggregatesModel.PersonAggregate;
 using Infrastructure;
+using Infrastructure.Repositories;
 using KafkaFlow;
+using KafkaFlow.Serializer;
+using KafkaFlow.Serializer.Json;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -36,8 +40,9 @@ namespace API
               .AddCustomDbContext(Configuration)
               .AddCustomSwagger(Configuration)
               .AddCustomConfiguration(Configuration)
-              .AddKafa(Configuration);
-            
+              .AddKafa(Configuration)
+              .AddTransient<IPersonRepository, PersonRepository>();
+
             //configure autofac
             return services.BuildServiceProvider();
         }
@@ -91,8 +96,13 @@ static class CustomExtensionsMethods
         return services.AddKafka(kafka => kafka
              .AddCluster(cluster => cluster
                  .WithBrokers(new[] { "localhost:9092" })
-                 .AddProducer(configuration.GetValue<string>("EventProducer"), producer => producer
-                     .DefaultTopic("customerEvents"))
+                 .AddProducer(KafkaHelper.ContactEventProducer, producer => producer
+                     // Using the DefaultMessageTypeResolver
+                     .DefaultTopic("contactEvents")
+                     .AddMiddlewares(middlewares => middlewares
+                        .AddSerializer<JsonMessageSerializer>())
+                     )
+
              )
          );
     }

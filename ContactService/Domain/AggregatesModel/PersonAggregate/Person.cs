@@ -38,25 +38,26 @@ namespace Domain.AggregatesModel.PersonAggregate
             return this.ContactInformations.Count();
         }
 
-        public bool RemoveContactInformation(int contactInformationId)
+        public ContactInformation RemoveContactInformation(int contactInformationId)
         {
             var existsContactInformation = this._contactInformations.SingleOrDefault(x => contactInformationId == x.Id);
-            return this._contactInformations.Remove(existsContactInformation);
+            if(existsContactInformation==null){
+                throw new ContactInformationNotFoundException();
+            }
+            this._contactInformations.Remove(existsContactInformation);
+            return existsContactInformation;
+
         }
 
         public ContactInformation AddContactInformation(
             Phone phoneNumber, Email email, string location, string description)
         {
-
-
             var existingContactInformation = _contactInformations
                 .SingleOrDefault(c => c.IsEqualTo(phoneNumber));
 
             if (existingContactInformation != null)
             {
-                // AddDomainEvent(new PersonAndContactInformationMethodVerifiedDomainEvent(this, existingContactInformation, orderId));
-
-                return existingContactInformation;
+                throw new ContactInformationAlreadyExistsException();
             }
 
             var contactInformation = new ContactInformation(phoneNumber, email, location, description);

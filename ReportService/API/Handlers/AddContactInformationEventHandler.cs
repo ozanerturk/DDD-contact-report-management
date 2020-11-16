@@ -16,6 +16,7 @@ namespace API
         }
         public async Task Handle(IMessageContext context, AddContactInformationEvent message)
         {
+            Console.WriteLine("AddContactInformationEvent occured");
 
             statisticRepository.Add(new Statistic(personId:message.personId,location:message.location,phoneNumber:message.phoneNumber));
             await statisticRepository.UnitOfWork.SaveChangesAsync();

@@ -4,7 +4,7 @@ using Domain.AggregatesModel.PersonAggregate;
 using System;
 using Infrastructure;
 
-namespace Ordering.Infrastructure.EntityConfigurations
+namespace Infrastructure.EntityConfigurations
 {
     class PersonEntityTypeConfiguration : IEntityTypeConfiguration<Person>
     {
