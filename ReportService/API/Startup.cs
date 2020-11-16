@@ -5,6 +5,7 @@ using API.Controllers;
 using API.Infrastructure.Filters;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Domain.AggregatesModel.ReportAggregate;
 using Domain.AggregatesModel.StatisticAggregate;
 using Infrastructure;
 using Infrastructure.Repositories;
@@ -43,6 +44,7 @@ namespace API
               .AddCustomSwagger(Configuration)
               .AddCustomConfiguration(Configuration)
               .AddTransient<IStatisticRepository, StatisticRepository>()
+              .AddTransient<IReportRepository, ReportRepository>()
               .AddKafka();
 
             return services.BuildServiceProvider();
@@ -97,12 +99,31 @@ static class CustomExtensionsMethods
           // .UseConsoleLog() 
           .AddCluster(cluster => cluster
               .WithBrokers(new[] { "localhost:9092" })
+                .AddProducer(KafkaHelper.ReportEventProducer, producer => producer
+                     .DefaultTopic("reportEvents")
+                     .AddMiddlewares(middlewares => middlewares
+                        .AddSerializer<JsonMessageSerializer>())
+                     )
+            .AddConsumer(consumer => consumer
+                    .WithName("report-event-consumer")
+                  .Topic("reportEvents")
+                  .WithGroupId("1")
+                  .WithBufferSize(100)
+                  .WithWorkersCount(2)
+                  .WithAutoOffsetReset(AutoOffsetReset.Latest)
+                  .AddMiddlewares(middlewares => middlewares
+                      .AddSerializer<JsonMessageSerializer>()
+                      .AddTypedHandlers(handlers => handlers
+                          .WithHandlerLifetime(InstanceLifetime.Singleton)
+                          .AddHandler<GenerateReportEventHandler>()
+                  )
+              ))
               .AddConsumer(consumer => consumer
                     .WithName("contact-event-consumer")
                   .Topic("contactEvents")
-                  .WithGroupId("1")
+                  .WithGroupId("2")
                   .WithBufferSize(100)
-                  .WithWorkersCount(10)
+                  .WithWorkersCount(2)
                   .WithAutoOffsetReset(AutoOffsetReset.Latest)
                   .AddMiddlewares(middlewares => middlewares
                       .AddSerializer<JsonMessageSerializer>()

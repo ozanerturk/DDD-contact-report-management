@@ -1,3 +1,4 @@
+using Domain.AggregatesModel.ReportAggregate;
 using Domain.AggregatesModel.StatisticAggregate;
 using Domain.Bases;
 using Infrastructure.EntityConfigurations;
@@ -15,6 +16,7 @@ namespace Infrastructure
     {
         public const string DEFAULT_SCHEMA = "setur";
         public DbSet<Statistic> Statistics { get; set; }
+        public DbSet<Report> Reports { get; set; }
    
         private IDbContextTransaction _currentTransaction;
 
@@ -29,6 +31,7 @@ namespace Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new StatisticEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new ReportEntityTypeConfiguration());
         }
 
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default(CancellationToken))

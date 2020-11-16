@@ -1,0 +1,12 @@
+C:\WORK\github\setur-scenarion\ReportService\Infrastructure\bin\Debug\netstandard2.1\Infrastructure.deps.json
+C:\WORK\github\setur-scenarion\ReportService\Infrastructure\bin\Debug\netstandard2.1\Infrastructure.dll
+C:\WORK\github\setur-scenarion\ReportService\Infrastructure\bin\Debug\netstandard2.1\Infrastructure.pdb
+C:\WORK\github\setur-scenarion\ReportService\Infrastructure\bin\Debug\netstandard2.1\Domain.dll
+C:\WORK\github\setur-scenarion\ReportService\Infrastructure\bin\Debug\netstandard2.1\Domain.pdb
+C:\WORK\github\setur-scenarion\ReportService\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.csprojAssemblyReference.cache
+C:\WORK\github\setur-scenarion\ReportService\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.AssemblyInfoInputs.cache
+C:\WORK\github\setur-scenarion\ReportService\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.AssemblyInfo.cs
+C:\WORK\github\setur-scenarion\ReportService\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.csproj.CoreCompileInputs.cache
+C:\WORK\github\setur-scenarion\ReportService\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.csproj.CopyComplete
+C:\WORK\github\setur-scenarion\ReportService\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.dll
+C:\WORK\github\setur-scenarion\ReportService\Infrastructure\obj\Debug\netstandard2.1\Infrastructure.pdb
