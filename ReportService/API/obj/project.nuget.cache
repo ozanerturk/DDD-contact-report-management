@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "R+8dOOHPlICI+yhxBszshFId0wE7M53OaH4H9htoGeDrFIJGd6ztfF12802U+IQtrLCn+0Q9Y76Ae4WTu7Ojkg==",
+  "dgSpecHash": "g4h32DLTAukj0r+QelYdSQHJMSTtToTrU2T7kOB3OTk69i8ThV5WVhoGEGLKghJJqm+poQKmLGkPVx7v5oHmLA==",
   "success": true,
   "projectFilePath": "C:\\WORK\\github\\setur-scenarion\\ReportService\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,8 @@
     "C:\\Users\\Ozan\\.nuget\\packages\\kafkaflow\\1.4.6\\kafkaflow.1.4.6.nupkg.sha512",
     "C:\\Users\\Ozan\\.nuget\\packages\\kafkaflow.abstractions\\1.4.6\\kafkaflow.abstractions.1.4.6.nupkg.sha512",
     "C:\\Users\\Ozan\\.nuget\\packages\\kafkaflow.microsoft.dependencyinjection\\1.4.6\\kafkaflow.microsoft.dependencyinjection.1.4.6.nupkg.sha512",
+    "C:\\Users\\Ozan\\.nuget\\packages\\kafkaflow.serializer\\1.4.6\\kafkaflow.serializer.1.4.6.nupkg.sha512",
+    "C:\\Users\\Ozan\\.nuget\\packages\\kafkaflow.serializer.json\\1.4.6\\kafkaflow.serializer.json.1.4.6.nupkg.sha512",
     "C:\\Users\\Ozan\\.nuget\\packages\\kafkaflow.typedhandler\\1.4.6\\kafkaflow.typedhandler.1.4.6.nupkg.sha512",
     "C:\\Users\\Ozan\\.nuget\\packages\\librdkafka.redist\\1.5.2\\librdkafka.redist.1.5.2.nupkg.sha512",
     "C:\\Users\\Ozan\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.0.0\\microsoft.aspnetcore.hosting.abstractions.2.0.0.nupkg.sha512",
@@ -139,6 +141,7 @@
     "C:\\Users\\Ozan\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\Ozan\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\Ozan\\.nuget\\packages\\system.text.encodings.web\\4.4.0\\system.text.encodings.web.4.4.0.nupkg.sha512",
+    "C:\\Users\\Ozan\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
     "C:\\Users\\Ozan\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Ozan\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\Ozan\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512",

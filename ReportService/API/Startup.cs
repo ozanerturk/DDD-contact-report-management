@@ -5,7 +5,12 @@ using API.Controllers;
 using API.Infrastructure.Filters;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Domain.AggregatesModel.StatisticAggregate;
+using Infrastructure;
+using Infrastructure.Repositories;
 using KafkaFlow;
+using KafkaFlow.Serializer;
+using KafkaFlow.Serializer.Json;
 using KafkaFlow.TypedHandler;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
@@ -36,23 +42,14 @@ namespace API
               .AddCustomDbContext(Configuration)
               .AddCustomSwagger(Configuration)
               .AddCustomConfiguration(Configuration)
+              .AddTransient<IStatisticRepository,StatisticRepository>()
               .AddKafka();
-            //configure autofac
 
-
-            var container = new ContainerBuilder();
-
-            // container.RegisterType<PersonRepository>()
-            //                 .As<IPersonRepository>()
-            //                 .InstancePerLifetimeScope();
-
-            container.Populate(services);
-
-            return new AutofacServiceProvider(container.Build());
+            return services.BuildServiceProvider();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory, IServiceProvider serviceProvider, IHostApplicationLifetime lifetime)
         {
             //loggerFactory.AddAzureWebAppDiagnostics();
             //loggerFactory.AddApplicationInsights(app.ApplicationServices, LogLevel.Trace);
@@ -63,7 +60,12 @@ namespace API
                 loggerFactory.CreateLogger<Startup>().LogDebug("Using PATH BASE '{pathBase}'", pathBase);
                 app.UsePathBase(pathBase);
             }
+            var bus = serviceProvider.CreateKafkaBus();
 
+            // Starts and stops the bus when you app starts and stops to graceful shutdown
+            lifetime.ApplicationStarted.Register(
+                a => bus.StartAsync(lifetime.ApplicationStopped).GetAwaiter().GetResult(),
+                null);
             app.UseSwagger()
                .UseSwaggerUI(c =>
                {
@@ -95,22 +97,18 @@ static class CustomExtensionsMethods
           // .UseConsoleLog() 
           .AddCluster(cluster => cluster
               .WithBrokers(new[] { "localhost:9092" })
-              // Install KafkaFlow.Admin
-              // .EnableAdminMessages("kafka-flow.admin")
               .AddConsumer(consumer => consumer
-                  .Topic("customerEvents")
+                    .WithName("contact-event-consumer")
+                  .Topic("contactEvents")
+                  .WithGroupId("1")
                   .WithBufferSize(100)
                   .WithWorkersCount(10)
                   .WithAutoOffsetReset(AutoOffsetReset.Latest)
                   .AddMiddlewares(middlewares => middlewares
-                      // // Install KafkaFlow.Compressor and Install KafkaFlow.Compressor.Gzip
-                      // .AddCompressor<GzipMessageCompressor>() 
-                      // // Install KafkaFlow.Serializer and Install KafkaFlow.Serializer.Protobuf
-                      // .AddSerializer<ProtobufMessageSerializer>()
-                      // // Install KafkaFlow.TypedHandler
+                      .AddSerializer<JsonMessageSerializer >()
                       .AddTypedHandlers(handlers => handlers
                           .WithHandlerLifetime(InstanceLifetime.Singleton)
-                          .AddHandler<PersonCreatedHandler>())
+                          .AddHandler<AddContactInformationEventHandler>())
                   )
               )
           )
@@ -147,18 +145,18 @@ static class CustomExtensionsMethods
 
     public static IServiceCollection AddCustomDbContext(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddEntityFrameworkNpgsql();
-        //    .AddDbContext<PersonContext>(options =>
-        //    {
-        //        options.UseNpgsql(configuration["ConnectionString"],
-        //            npgsqlOptionsAction: sqlOptions =>
-        //            {
-        //                sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
-        //                sqlOptions.EnableRetryOnFailure(maxRetryCount: 15, maxRetryDelay: TimeSpan.FromSeconds(30), errorCodesToAdd: null);
-        //            });
-        //    },
-        //        ServiceLifetime.Scoped  //Showing explicitly that the DbContext is shared across the HTTP request scope (graph of objects started in the HTTP request)
-        //    );
+        services.AddEntityFrameworkNpgsql()
+           .AddDbContext<ReportContext>(options =>
+           {
+               options.UseNpgsql(configuration["ConnectionString"],
+                   npgsqlOptionsAction: sqlOptions =>
+                   {
+                       sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
+                       sqlOptions.EnableRetryOnFailure(maxRetryCount: 15, maxRetryDelay: TimeSpan.FromSeconds(30), errorCodesToAdd: null);
+                   });
+           },
+               ServiceLifetime.Scoped  //Showing explicitly that the DbContext is shared across the HTTP request scope (graph of objects started in the HTTP request)
+           );
 
         return services;
     }

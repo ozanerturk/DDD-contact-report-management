@@ -160,3 +160,10 @@ C:\WORK\github\setur-scenarion\ReportService\API\bin\Debug\netcoreapp3.1\KafkaFl
 C:\WORK\github\setur-scenarion\ReportService\API\bin\Debug\netcoreapp3.1\KafkaFlow.Microsoft.DependencyInjection.dll
 C:\WORK\github\setur-scenarion\ReportService\API\bin\Debug\netcoreapp3.1\KafkaFlow.TypedHandler.dll
 C:\WORK\github\setur-scenarion\ReportService\API\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll
+C:\WORK\github\setur-scenarion\ReportService\API\bin\Debug\netcoreapp3.1\KafkaFlow.Serializer.dll
+C:\WORK\github\setur-scenarion\ReportService\API\bin\Debug\netcoreapp3.1\KafkaFlow.Serializer.Json.dll
+C:\WORK\github\setur-scenarion\ReportService\API\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\WORK\github\setur-scenarion\ReportService\API\bin\Debug\netcoreapp3.1\Domain.dll
+C:\WORK\github\setur-scenarion\ReportService\API\bin\Debug\netcoreapp3.1\Infrastructure.dll
+C:\WORK\github\setur-scenarion\ReportService\API\bin\Debug\netcoreapp3.1\Infrastructure.pdb
+C:\WORK\github\setur-scenarion\ReportService\API\bin\Debug\netcoreapp3.1\Domain.pdb

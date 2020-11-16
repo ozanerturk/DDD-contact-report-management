@@ -27,8 +27,12 @@
           "Autofac.Extensions.DependencyInjection": "5.0.1",
           "Confluent.Kafka": "1.5.2",
           "Dapper": "2.0.35",
+          "Domain": "1.0.0",
+          "Infrastructure": "1.0.0",
           "KafkaFlow": "1.4.6",
           "KafkaFlow.Microsoft.DependencyInjection": "1.4.6",
+          "KafkaFlow.Serializer": "1.4.6",
+          "KafkaFlow.Serializer.Json": "1.4.6",
           "KafkaFlow.TypedHandler": "1.4.6",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "3.1.0",
           "Microsoft.EntityFrameworkCore": "3.1.3",
@@ -285,7 +289,6 @@
           "System.Text.Encoding.Reference": "4.1.2.0",
           "System.Text.Encoding.Extensions.Reference": "4.1.2.0",
           "System.Text.Encodings.Web.Reference": "4.0.5.0",
-          "System.Text.Json": "4.0.1.0",
           "System.Text.RegularExpressions.Reference": "4.2.2.0",
           "System.Threading.Reference": "4.1.2.0",
           "System.Threading.Overlapped": "4.1.2.0",
@@ -417,6 +420,35 @@
         },
         "compile": {
           "lib/netstandard2.0/KafkaFlow.Microsoft.DependencyInjection.dll": {}
+        }
+      },
+      "KafkaFlow.Serializer/1.4.6": {
+        "dependencies": {
+          "KafkaFlow.Abstractions": "1.4.6"
+        },
+        "runtime": {
+          "lib/netstandard2.0/KafkaFlow.Serializer.dll": {
+            "assemblyVersion": "1.4.6.0",
+            "fileVersion": "1.4.6.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/KafkaFlow.Serializer.dll": {}
+        }
+      },
+      "KafkaFlow.Serializer.Json/1.4.6": {
+        "dependencies": {
+          "KafkaFlow.Abstractions": "1.4.6",
+          "System.Text.Json": "4.7.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/KafkaFlow.Serializer.Json.dll": {
+            "assemblyVersion": "1.4.6.0",
+            "fileVersion": "1.4.6.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/KafkaFlow.Serializer.Json.dll": {}
         }
       },
       "KafkaFlow.TypedHandler/1.4.6": {
@@ -1845,6 +1877,17 @@
         }
       },
       "System.Text.Encodings.Web/4.4.0": {},
+      "System.Text.Json/4.7.2": {
+        "runtime": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {
+            "assemblyVersion": "4.0.1.2",
+            "fileVersion": "4.700.20.21406"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {}
+        }
+      },
       "System.Text.RegularExpressions/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.4.0-beta-24913-02"
@@ -1922,6 +1965,28 @@
           "System.Text.Encoding": "4.3.0",
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
+        }
+      },
+      "Domain/1.0.0": {
+        "runtime": {
+          "Domain.dll": {}
+        },
+        "compile": {
+          "Domain.dll": {}
+        }
+      },
+      "Infrastructure/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "3.1.3",
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.3",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.3"
+        },
+        "runtime": {
+          "Infrastructure.dll": {}
+        },
+        "compile": {
+          "Infrastructure.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -3376,12 +3441,6 @@
         },
         "compileOnly": true
       },
-      "System.Text.Json/4.0.1.0": {
-        "compile": {
-          "System.Text.Json.dll": {}
-        },
-        "compileOnly": true
-      },
       "System.Text.RegularExpressions.Reference/4.2.2.0": {
         "compile": {
           "System.Text.RegularExpressions.dll": {}
@@ -3600,6 +3659,20 @@
       "sha512": "sha512-OrhFEnCIb6JoRd7PpTdIUHVJhiVXAs3x9AkhTGXWv5LT0rofXe3cQyE+AGsHYZNnmK7/56wyory8W9Y1Uf4aLQ==",
       "path": "kafkaflow.microsoft.dependencyinjection/1.4.6",
       "hashPath": "kafkaflow.microsoft.dependencyinjection.1.4.6.nupkg.sha512"
+    },
+    "KafkaFlow.Serializer/1.4.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3kXGl+DJmFRBkCsazOsQcUe1jydZX+I/FzSlrSIilhrxDdJ+Ab42ETinrDKzHzjzMZFalpm1a/G3xG4OZPRPmQ==",
+      "path": "kafkaflow.serializer/1.4.6",
+      "hashPath": "kafkaflow.serializer.1.4.6.nupkg.sha512"
+    },
+    "KafkaFlow.Serializer.Json/1.4.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jbo0xG6nEa7v5eW7EDiBUDiF5L3mxGHtgp17lC9eVabk2/a7KWSHgee9bCfehH9Az9x1AuHf1weEpCQME88Enw==",
+      "path": "kafkaflow.serializer.json/1.4.6",
+      "hashPath": "kafkaflow.serializer.json.1.4.6.nupkg.sha512"
     },
     "KafkaFlow.TypedHandler/1.4.6": {
       "type": "package",
@@ -4497,6 +4570,13 @@
       "path": "system.text.encodings.web/4.4.0",
       "hashPath": "system.text.encodings.web.4.4.0.nupkg.sha512"
     },
+    "System.Text.Json/4.7.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg==",
+      "path": "system.text.json/4.7.2",
+      "hashPath": "system.text.json.4.7.2.nupkg.sha512"
+    },
     "System.Text.RegularExpressions/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -4559,6 +4639,16 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
       "type": "referenceassembly",
@@ -5766,11 +5856,6 @@
       "sha512": ""
     },
     "System.Text.Encodings.Web.Reference/4.0.5.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "System.Text.Json/4.0.1.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
