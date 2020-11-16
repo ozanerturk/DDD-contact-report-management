@@ -6,19 +6,19 @@ namespace Domain.AggregatesModel.PersonAggregate
 {
     public class Phone : ValueObject
     {
-        public string phoneNumber { get; private set; }
+        public string PhoneNumber { get; private set; }
 
         public Phone() { }
 
         public Phone(string phoneNumber)
         {
-            this.phoneNumber = phoneNumber;
+            this.PhoneNumber = phoneNumber;
         }
 
         protected override IEnumerable<object> GetEqualityComponents()
         {
             // Using a yield return statement to return each element one at a time
-            yield return phoneNumber;
+            yield return PhoneNumber;
           
         }
     }

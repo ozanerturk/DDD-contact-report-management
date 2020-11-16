@@ -6,33 +6,33 @@ namespace Domain.AggregatesModel.PersonAggregate
     public class ContactInformation
         : Entity
     {
-        private Phone phone;
-        private Email email;
-        private string desciption;
-        private string location;
+        public Phone Phone {get; private set;}
+        public Email Email {get; private set;}
+        public  string Desciption {get; private set;}
+        public string Location {get; private set;}
 
         protected ContactInformation() { }
 
         public ContactInformation(Phone phone, Email email, string location, string desciption)
         {
 
-            this.desciption = !string.IsNullOrWhiteSpace(desciption) ? desciption : throw new ArgumentNullException(nameof(desciption));
-            this.location = !string.IsNullOrWhiteSpace(location) ? location : throw new ArgumentNullException(nameof(location));
-            this.phone =phone;
-            this.email =email;
+            this.Desciption = !string.IsNullOrWhiteSpace(desciption) ? desciption : throw new ArgumentNullException(nameof(desciption));
+            this.Location = !string.IsNullOrWhiteSpace(location) ? location : throw new ArgumentNullException(nameof(location));
+            this.Phone =phone;
+            this.Email =email;
         }
 
         public bool IsEqualTo(Phone phone)
         {
-            return this.phone.Equals(phone);
+            return this.Phone.Equals(phone);
         }
 
         internal ContactInformation Update(Phone phone, Email email, string location, string description)
         {
-            this.desciption = !string.IsNullOrWhiteSpace(desciption) ? desciption : throw new ArgumentNullException(nameof(desciption));
-            this.location = !string.IsNullOrWhiteSpace(location) ? location : throw new ArgumentNullException(nameof(location));
-            this.phone =phone;
-            this.email =email;
+            this.Desciption = !string.IsNullOrWhiteSpace(Desciption) ? Desciption : throw new ArgumentNullException(nameof(Desciption));
+            this.Location = !string.IsNullOrWhiteSpace(location) ? location : throw new ArgumentNullException(nameof(location));
+            this.Phone =phone;
+            this.Email =email;
             return this;
         }
     }
