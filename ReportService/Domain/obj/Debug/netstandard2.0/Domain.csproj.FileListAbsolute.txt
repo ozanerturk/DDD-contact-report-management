@@ -1,9 +1,0 @@
-C:\WORK\github\setur-scenarion\ReportService\Domain\bin\Debug\netstandard2.0\Domain.deps.json
-C:\WORK\github\setur-scenarion\ReportService\Domain\bin\Debug\netstandard2.0\Domain.dll
-C:\WORK\github\setur-scenarion\ReportService\Domain\bin\Debug\netstandard2.0\Domain.pdb
-C:\WORK\github\setur-scenarion\ReportService\Domain\obj\Debug\netstandard2.0\Domain.csprojAssemblyReference.cache
-C:\WORK\github\setur-scenarion\ReportService\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfoInputs.cache
-C:\WORK\github\setur-scenarion\ReportService\Domain\obj\Debug\netstandard2.0\Domain.AssemblyInfo.cs
-C:\WORK\github\setur-scenarion\ReportService\Domain\obj\Debug\netstandard2.0\Domain.csproj.CoreCompileInputs.cache
-C:\WORK\github\setur-scenarion\ReportService\Domain\obj\Debug\netstandard2.0\Domain.dll
-C:\WORK\github\setur-scenarion\ReportService\Domain\obj\Debug\netstandard2.0\Domain.pdb
