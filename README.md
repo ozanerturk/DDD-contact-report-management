@@ -8,6 +8,7 @@
 
 ### ![Achitecture](/Architecture.png)
 
+Each update/create action manipulates the report statistics published as an event in order to recieved by report service. Report service updates its records according to the event with respect to the Eventual Consistency.
 
 ## Datasets
 
