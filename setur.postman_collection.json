@@ -1,0 +1,586 @@
+{
+	"info": {
+		"_postman_id": "423dcdf1-a925-4200-beaa-a1202114402d",
+		"name": "setur",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreatePerson",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fa94a225-c30b-435c-bbf1-cfc3df0e5059",
+						"exec": [
+							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": " Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": " same-origin",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": " cors",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": " empty",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": " https://alms.gsu.edu.tr/Home/Index",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": " gzip, deflate, br",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": " tr,en;q=0.9,en-US;q=0.8,zh-CN;q=0.7,zh;q=0.6",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": " __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; .ASPXAUTH=E96BBA58138CDC7DE0485695AA6C462A04A3C91283A261327160EF993514B8A17BFF402B3AD91A2FD4643B5697575C10713000E36733E4454E099ECCCEFC53822C9A9DE8F24446CF0CFD6123FC764535D862035CB45827888D63C2E6DA7E580296A40776; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; lastAccessTime=637398318785781632; _ga=GA1.3.860173442.1603172268; _ga=GA1.1.746592356.1602675182; _ga=GA1.3.860173442.1603172268; __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; .ASPXAUTH=FECB4ACAF4A76C7F89F1B330D59BE75A1F0D346D26B9EB7D4DEDE15FFCD79E31F247594E183D145F81B84D3FE4E07B5114CAF0379BFD2D60A4B89CB8E58AD5DADDEC79C853AE0122E0D51BE92AF9A1255F65B06BBB7D4C679F1E8F13D184A2C2A5CD1F6D",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"ozan\",\r\n        \"surname\": \"ertürk\",\r\n        \"company\": \"X Company\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePerson",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0dece190-799d-40f5-bd24-8a4f3b1fdf65",
+						"exec": [
+							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": " Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": " same-origin",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": " cors",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": " empty",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": " https://alms.gsu.edu.tr/Home/Index",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": " gzip, deflate, br",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": " tr,en;q=0.9,en-US;q=0.8,zh-CN;q=0.7,zh;q=0.6",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": " __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; .ASPXAUTH=E96BBA58138CDC7DE0485695AA6C462A04A3C91283A261327160EF993514B8A17BFF402B3AD91A2FD4643B5697575C10713000E36733E4454E099ECCCEFC53822C9A9DE8F24446CF0CFD6123FC764535D862035CB45827888D63C2E6DA7E580296A40776; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; lastAccessTime=637398318785781632; _ga=GA1.3.860173442.1603172268; _ga=GA1.1.746592356.1602675182; _ga=GA1.3.860173442.1603172268; __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; .ASPXAUTH=FECB4ACAF4A76C7F89F1B330D59BE75A1F0D346D26B9EB7D4DEDE15FFCD79E31F247594E183D145F81B84D3FE4E07B5114CAF0379BFD2D60A4B89CB8E58AD5DADDEC79C853AE0122E0D51BE92AF9A1255F65B06BBB7D4C679F1E8F13D184A2C2A5CD1F6D",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"ozan\",\r\n        \"surname\": \"ertürk\",\r\n        \"company\": \"sensemore\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/person/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"person",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/Person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"Person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateContactInformation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f3120fb-9f04-4b09-9ca4-31df39ce69e6",
+						"exec": [
+							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": " Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": " same-origin",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": " cors",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": " empty",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": " https://alms.gsu.edu.tr/Home/Index",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": " gzip, deflate, br",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": " tr,en;q=0.9,en-US;q=0.8,zh-CN;q=0.7,zh;q=0.6",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": " __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; .ASPXAUTH=E96BBA58138CDC7DE0485695AA6C462A04A3C91283A261327160EF993514B8A17BFF402B3AD91A2FD4643B5697575C10713000E36733E4454E099ECCCEFC53822C9A9DE8F24446CF0CFD6123FC764535D862035CB45827888D63C2E6DA7E580296A40776; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; lastAccessTime=637398318785781632; _ga=GA1.3.860173442.1603172268; _ga=GA1.1.746592356.1602675182; _ga=GA1.3.860173442.1603172268; __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; .ASPXAUTH=FECB4ACAF4A76C7F89F1B330D59BE75A1F0D346D26B9EB7D4DEDE15FFCD79E31F247594E183D145F81B84D3FE4E07B5114CAF0379BFD2D60A4B89CB8E58AD5DADDEC79C853AE0122E0D51BE92AF9A1255F65B06BBB7D4C679F1E8F13D184A2C2A5CD1F6D",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"phoneNumber\": \"555555555\",\r\n        \"emailAddress\": \"asd@asd.com\",\r\n        \"location\":\"Paris\",\r\n        \"description\":\"des\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/person/121/contact-information",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"person",
+						"121",
+						"contact-information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPerson",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1b62516-4b38-442c-9f6c-1dc360896779",
+						"exec": [
+							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": " Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": " same-origin",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": " cors",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": " empty",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": " https://alms.gsu.edu.tr/Home/Index",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": " gzip, deflate, br",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": " tr,en;q=0.9,en-US;q=0.8,zh-CN;q=0.7,zh;q=0.6",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": " __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; .ASPXAUTH=E96BBA58138CDC7DE0485695AA6C462A04A3C91283A261327160EF993514B8A17BFF402B3AD91A2FD4643B5697575C10713000E36733E4454E099ECCCEFC53822C9A9DE8F24446CF0CFD6123FC764535D862035CB45827888D63C2E6DA7E580296A40776; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; lastAccessTime=637398318785781632; _ga=GA1.3.860173442.1603172268; _ga=GA1.1.746592356.1602675182; _ga=GA1.3.860173442.1603172268; __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; .ASPXAUTH=FECB4ACAF4A76C7F89F1B330D59BE75A1F0D346D26B9EB7D4DEDE15FFCD79E31F247594E183D145F81B84D3FE4E07B5114CAF0379BFD2D60A4B89CB8E58AD5DADDEC79C853AE0122E0D51BE92AF9A1255F65B06BBB7D4C679F1E8F13D184A2C2A5CD1F6D",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/person/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"person",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteContactInformation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "aadd3b32-c75b-42c6-972d-d67836bcd6f9",
+						"exec": [
+							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": " Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": " same-origin",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": " cors",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": " empty",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": " https://alms.gsu.edu.tr/Home/Index",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": " gzip, deflate, br",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": " tr,en;q=0.9,en-US;q=0.8,zh-CN;q=0.7,zh;q=0.6",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": " __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; .ASPXAUTH=E96BBA58138CDC7DE0485695AA6C462A04A3C91283A261327160EF993514B8A17BFF402B3AD91A2FD4643B5697575C10713000E36733E4454E099ECCCEFC53822C9A9DE8F24446CF0CFD6123FC764535D862035CB45827888D63C2E6DA7E580296A40776; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; lastAccessTime=637398318785781632; _ga=GA1.3.860173442.1603172268; _ga=GA1.1.746592356.1602675182; _ga=GA1.3.860173442.1603172268; __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; .ASPXAUTH=FECB4ACAF4A76C7F89F1B330D59BE75A1F0D346D26B9EB7D4DEDE15FFCD79E31F247594E183D145F81B84D3FE4E07B5114CAF0379BFD2D60A4B89CB8E58AD5DADDEC79C853AE0122E0D51BE92AF9A1255F65B06BBB7D4C679F1E8F13D184A2C2A5CD1F6D",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"ozan\",\r\n        \"surname\": \"ertürk\",\r\n        \"company\": \"sensemore\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/person/12/contact-information/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"person",
+						"12",
+						"contact-information",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GenerateReport",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5bc7deb3-c579-43eb-bc3b-a9c7765f5628",
+						"exec": [
+							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": " Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": " same-origin",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": " cors",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": " empty",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": " https://alms.gsu.edu.tr/Home/Index",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": " gzip, deflate, br",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": " tr,en;q=0.9,en-US;q=0.8,zh-CN;q=0.7,zh;q=0.6",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": " __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; .ASPXAUTH=E96BBA58138CDC7DE0485695AA6C462A04A3C91283A261327160EF993514B8A17BFF402B3AD91A2FD4643B5697575C10713000E36733E4454E099ECCCEFC53822C9A9DE8F24446CF0CFD6123FC764535D862035CB45827888D63C2E6DA7E580296A40776; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; lastAccessTime=637398318785781632; _ga=GA1.3.860173442.1603172268; _ga=GA1.1.746592356.1602675182; _ga=GA1.3.860173442.1603172268; __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; .ASPXAUTH=FECB4ACAF4A76C7F89F1B330D59BE75A1F0D346D26B9EB7D4DEDE15FFCD79E31F247594E183D145F81B84D3FE4E07B5114CAF0379BFD2D60A4B89CB8E58AD5DADDEC79C853AE0122E0D51BE92AF9A1255F65B06BBB7D4C679F1E8F13D184A2C2A5CD1F6D",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"location\":\"Paris\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/report",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"report"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetReport",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "02efd4fd-353f-4d0e-8acd-000ca3d384a3",
+						"exec": [
+							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": " Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": " same-origin",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": " cors",
+						"type": "text"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": " empty",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": " https://alms.gsu.edu.tr/Home/Index",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": " gzip, deflate, br",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": " tr,en;q=0.9,en-US;q=0.8,zh-CN;q=0.7,zh;q=0.6",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": " __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; .ASPXAUTH=E96BBA58138CDC7DE0485695AA6C462A04A3C91283A261327160EF993514B8A17BFF402B3AD91A2FD4643B5697575C10713000E36733E4454E099ECCCEFC53822C9A9DE8F24446CF0CFD6123FC764535D862035CB45827888D63C2E6DA7E580296A40776; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; lastAccessTime=637398318785781632; _ga=GA1.3.860173442.1603172268; _ga=GA1.1.746592356.1602675182; _ga=GA1.3.860173442.1603172268; __RequestVerificationToken=GWljscTfc-uhfhQcL1qb3GZuUxiHnvQVVYGZi_A9mIfu4nQJOKtgw4KzY--ZUw_6kvwubCf5wA3anuoK8WPVlrEXqhQ1; _gid=GA1.1.532920234.1604234213; CookUserName=19411005; ASP.NET_SessionId=nn3yweqz1iyoor35suvftmkg; selectedClassIds_31A45EA8F08F0201EA45410BDAB0F7F2={\"855A141B87B8A87AA51BD741CCF78014\":\"AC3DC3409866EF53A58B56F0BD2B112C\",\"F9CB18FDA888CCD53E893B4B95BAE337\":\"A8A3479F686CA529485C586A8751734B\"}; .ASPXAUTH=FECB4ACAF4A76C7F89F1B330D59BE75A1F0D346D26B9EB7D4DEDE15FFCD79E31F247594E183D145F81B84D3FE4E07B5114CAF0379BFD2D60A4B89CB8E58AD5DADDEC79C853AE0122E0D51BE92AF9A1255F65B06BBB7D4C679F1E8F13D184A2C2A5CD1F6D",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3002/report/1c05e24e-8dad-455e-bff5-7096c089d891",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"report",
+						"1c05e24e-8dad-455e-bff5-7096c089d891"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
