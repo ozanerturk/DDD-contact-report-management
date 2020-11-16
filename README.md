@@ -2,7 +2,7 @@
 
 ## Prerequest
 - Kafka server should be running at: localhost:9092
-- Postresql server should be running at with no credential requirement: localhost:5432
+- Postresql server should be running  with no credential at: localhost:5432
 - dotnet SDK 3.1
 
 
