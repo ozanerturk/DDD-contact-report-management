@@ -13,7 +13,7 @@ namespace Infrastructure
 {
     public class PersonContext : DbContext, IUnitOfWork
     {
-        public const string DEFAULT_SCHEMA = "setur";
+        public const string DEFAULT_SCHEMA = "ddd";
         public DbSet<Person> Persons { get; set; }
         public DbSet<ContactInformation> ContactInformations { get; set; }
    

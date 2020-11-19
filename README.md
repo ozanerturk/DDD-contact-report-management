@@ -12,7 +12,7 @@ Each update/create action manipulates the report statistics published as an even
 
 ## Datasets
 
-### [Postman Collection](/setur.postman_collection.json)
+### [Postman Collection](/ddd.postman_collection.json)
 
  ## Skipped Features
  - Request FluentValidations

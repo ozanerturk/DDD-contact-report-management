@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "423dcdf1-a925-4200-beaa-a1202114402d",
-		"name": "setur",
+		"_postman_id": "e478b434-4307-43fc-a77e-265a123beec8",
+		"name": "Contact Report Management",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fa94a225-c30b-435c-bbf1-cfc3df0e5059",
+						"id": "2b5a7694-0663-4298-98e5-154c24494508",
 						"exec": [
 							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
 						],
@@ -92,7 +92,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0dece190-799d-40f5-bd24-8a4f3b1fdf65",
+						"id": "7ae3c84d-b1eb-4819-89d5-f58f4da74fae",
 						"exec": [
 							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
 						],
@@ -193,7 +193,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4f3120fb-9f04-4b09-9ca4-31df39ce69e6",
+						"id": "b3644b15-a6f6-43b0-9f60-200f1c346e2f",
 						"exec": [
 							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
 						],
@@ -276,7 +276,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e1b62516-4b38-442c-9f6c-1dc360896779",
+						"id": "45b2d9c7-d1c2-455d-8636-d9306d96fc0f",
 						"exec": [
 							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
 						],
@@ -349,7 +349,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "aadd3b32-c75b-42c6-972d-d67836bcd6f9",
+						"id": "9b4ff25b-5abf-4940-9c65-dd1ecf0e0cd2",
 						"exec": [
 							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
 						],
@@ -433,7 +433,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5bc7deb3-c579-43eb-bc3b-a9c7765f5628",
+						"id": "01ef11bf-2f24-4656-b1ee-ef6bf2c7acde",
 						"exec": [
 							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
 						],
@@ -514,7 +514,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "02efd4fd-353f-4d0e-8acd-000ca3d384a3",
+						"id": "ef341c09-3397-4702-a3dd-c278b1879f83",
 						"exec": [
 							"pm.environment.set('__RequestVerificationToken', pm.cookies.get('__RequestVerificationToken'))"
 						],

@@ -8,13 +8,13 @@ namespace API.Migrations
         {
             migrationBuilder.RenameColumn(
                 name: "Phone_PhoneNumber",
-                schema: "setur",
+                schema: "ddd",
                 table: "contactInformations",
                 newName: "PhoneNumber");
 
             migrationBuilder.RenameColumn(
                 name: "Email_EmailAddress",
-                schema: "setur",
+                schema: "ddd",
                 table: "contactInformations",
                 newName: "Email");
         }
@@ -23,13 +23,13 @@ namespace API.Migrations
         {
             migrationBuilder.RenameColumn(
                 name: "PhoneNumber",
-                schema: "setur",
+                schema: "ddd",
                 table: "contactInformations",
                 newName: "Phone_PhoneNumber");
 
             migrationBuilder.RenameColumn(
                 name: "Email",
-                schema: "setur",
+                schema: "ddd",
                 table: "contactInformations",
                 newName: "Email_EmailAddress");
         }

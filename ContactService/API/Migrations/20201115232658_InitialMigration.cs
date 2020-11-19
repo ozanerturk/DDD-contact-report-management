@@ -8,16 +8,16 @@ namespace API.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "setur");
+                name: "ddd");
 
             migrationBuilder.CreateSequence(
                 name: "personseq",
-                schema: "setur",
+                schema: "ddd",
                 incrementBy: 10);
 
             migrationBuilder.CreateTable(
                 name: "persons",
-                schema: "setur",
+                schema: "ddd",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -33,7 +33,7 @@ namespace API.Migrations
 
             migrationBuilder.CreateTable(
                 name: "contactInformations",
-                schema: "setur",
+                schema: "ddd",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -50,7 +50,7 @@ namespace API.Migrations
                     table.ForeignKey(
                         name: "FK_contactInformations_persons_PersonId",
                         column: x => x.PersonId,
-                        principalSchema: "setur",
+                        principalSchema: "ddd",
                         principalTable: "persons",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -58,7 +58,7 @@ namespace API.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_contactInformations_PersonId",
-                schema: "setur",
+                schema: "ddd",
                 table: "contactInformations",
                 column: "PersonId");
         }
@@ -67,15 +67,15 @@ namespace API.Migrations
         {
             migrationBuilder.DropTable(
                 name: "contactInformations",
-                schema: "setur");
+                schema: "ddd");
 
             migrationBuilder.DropTable(
                 name: "persons",
-                schema: "setur");
+                schema: "ddd");
 
             migrationBuilder.DropSequence(
                 name: "personseq",
-                schema: "setur");
+                schema: "ddd");
         }
     }
 }

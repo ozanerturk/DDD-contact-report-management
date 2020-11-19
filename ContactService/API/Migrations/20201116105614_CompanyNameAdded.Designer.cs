@@ -19,7 +19,7 @@ namespace API.Migrations
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
-                .HasAnnotation("Relational:Sequence:setur.personseq", "'personseq', 'setur', '1', '10', '', '', 'Int64', 'False'");
+                .HasAnnotation("Relational:Sequence:ddd.personseq", "'personseq', 'ddd', '1', '10', '', '', 'Int64', 'False'");
 
             modelBuilder.Entity("Domain.AggregatesModel.PersonAggregate.ContactInformation", b =>
                 {
@@ -41,7 +41,7 @@ namespace API.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.ToTable("contactInformations","setur");
+                    b.ToTable("contactInformations","ddd");
                 });
 
             modelBuilder.Entity("Domain.AggregatesModel.PersonAggregate.Person", b =>
@@ -50,7 +50,7 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:HiLoSequenceName", "personseq")
-                        .HasAnnotation("Npgsql:HiLoSequenceSchema", "setur")
+                        .HasAnnotation("Npgsql:HiLoSequenceSchema", "ddd")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SequenceHiLo);
 
                     b.Property<string>("Company")
@@ -69,7 +69,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("persons","setur");
+                    b.ToTable("persons","ddd");
                 });
 
             modelBuilder.Entity("Domain.AggregatesModel.PersonAggregate.ContactInformation", b =>

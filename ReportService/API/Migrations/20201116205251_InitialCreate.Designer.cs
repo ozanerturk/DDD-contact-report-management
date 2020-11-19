@@ -19,7 +19,7 @@ namespace API.Migrations
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
-                .HasAnnotation("Relational:Sequence:setur.statisticseq", "'statisticseq', 'setur', '1', '10', '', '', 'Int64', 'False'");
+                .HasAnnotation("Relational:Sequence:ddd.statisticseq", "'statisticseq', 'ddd', '1', '10', '', '', 'Int64', 'False'");
 
             modelBuilder.Entity("Domain.AggregatesModel.StatisticAggregate.Statistic", b =>
                 {
@@ -27,7 +27,7 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:HiLoSequenceName", "statisticseq")
-                        .HasAnnotation("Npgsql:HiLoSequenceSchema", "setur")
+                        .HasAnnotation("Npgsql:HiLoSequenceSchema", "ddd")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SequenceHiLo);
 
                     b.Property<string>("Location")
@@ -41,7 +41,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("statistics","setur");
+                    b.ToTable("statistics","ddd");
                 });
 #pragma warning restore 612, 618
         }

@@ -8,26 +8,26 @@ namespace API.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_reports_status_StatusId",
-                schema: "setur",
+                schema: "ddd",
                 table: "reports");
 
             migrationBuilder.DropTable(
                 name: "status",
-                schema: "setur");
+                schema: "ddd");
 
             migrationBuilder.DropIndex(
                 name: "IX_reports_StatusId",
-                schema: "setur",
+                schema: "ddd",
                 table: "reports");
 
             migrationBuilder.DropColumn(
                 name: "StatusId",
-                schema: "setur",
+                schema: "ddd",
                 table: "reports");
 
             migrationBuilder.AddColumn<int>(
                 name: "Status",
-                schema: "setur",
+                schema: "ddd",
                 table: "reports",
                 nullable: false,
                 defaultValue: 0);
@@ -37,12 +37,12 @@ namespace API.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "Status",
-                schema: "setur",
+                schema: "ddd",
                 table: "reports");
 
             migrationBuilder.AddColumn<int>(
                 name: "StatusId",
-                schema: "setur",
+                schema: "ddd",
                 table: "reports",
                 type: "integer",
                 nullable: false,
@@ -50,7 +50,7 @@ namespace API.Migrations
 
             migrationBuilder.CreateTable(
                 name: "status",
-                schema: "setur",
+                schema: "ddd",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false, defaultValue: 1),
@@ -63,16 +63,16 @@ namespace API.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_reports_StatusId",
-                schema: "setur",
+                schema: "ddd",
                 table: "reports",
                 column: "StatusId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_reports_status_StatusId",
-                schema: "setur",
+                schema: "ddd",
                 table: "reports",
                 column: "StatusId",
-                principalSchema: "setur",
+                principalSchema: "ddd",
                 principalTable: "status",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);

@@ -8,7 +8,7 @@ namespace API.Migrations
         {
             migrationBuilder.AddColumn<string>(
                 name: "Company",
-                schema: "setur",
+                schema: "ddd",
                 table: "persons",
                 nullable: true);
         }
@@ -17,7 +17,7 @@ namespace API.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "Company",
-                schema: "setur",
+                schema: "ddd",
                 table: "persons");
         }
     }

@@ -14,7 +14,7 @@ namespace Infrastructure
 {
     public class ReportContext : DbContext, IUnitOfWork
     {
-        public const string DEFAULT_SCHEMA = "setur";
+        public const string DEFAULT_SCHEMA = "ddd";
         public DbSet<Statistic> Statistics { get; set; }
         public DbSet<Report> Reports { get; set; }
    

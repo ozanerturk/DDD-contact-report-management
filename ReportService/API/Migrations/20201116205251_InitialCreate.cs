@@ -8,16 +8,16 @@ namespace API.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "setur");
+                name: "ddd");
 
             migrationBuilder.CreateSequence(
                 name: "statisticseq",
-                schema: "setur",
+                schema: "ddd",
                 incrementBy: 10);
 
             migrationBuilder.CreateTable(
                 name: "statistics",
-                schema: "setur",
+                schema: "ddd",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -36,11 +36,11 @@ namespace API.Migrations
         {
             migrationBuilder.DropTable(
                 name: "statistics",
-                schema: "setur");
+                schema: "ddd");
 
             migrationBuilder.DropSequence(
                 name: "statisticseq",
-                schema: "setur");
+                schema: "ddd");
         }
     }
 }
